@@ -1,0 +1,17 @@
+\usepackage{amsthm}
+\usepackage{thmtools}
+
+\declaretheoremstyle[
+  thmbox=M, %thmboxを使うと本文のfontが斜体で固定される
+  bodyfont=\textrm,
+  within=section,
+]{default}
+\declaretheorem[style=default, name=定義]{defn}
+
+\declaretheorem[thmbox=M, name=注, sibling=defn]{rmk}
+\declaretheorem[thmbox=M, name=補題, sibling=defn]{lem}
+\declaretheorem[thmbox=M, name=例, sibling=defn]{exa}
+\declaretheorem[thmbox=M, name=定理, sibling=defn]{them}
+\declaretheorem[thmbox=M, name=動機, sibling=defn]{mtvn}
+\declaretheorem[thmbox=M, name=命題, sibling=defn]{prop}
+\declaretheorem[thmbox=M, name=事実, sibling=defn]{fact}
