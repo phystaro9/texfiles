@@ -1,9 +1,59 @@
-\documentclass[uplatex]{jsarticle}
+\documentclass[uplatex, a4paper]{jsarticle}
 \usepackage{amsmath, amssymb}
-\usepackage{txfonts}
-\usepackage{amsthm}
+\usepackage{amsthm, newtxtext, newtxmath}
 \usepackage{thmtools}
+\usepackage{thmmacros}
+
+\title{リソース理論のノート}
+\author{澤田 太郎}
 
 \begin{document}
+\maketitle
+これはリソース理論の勉強ノートです. 主にメモです.
+
+\newpage
+\section{記号等の前提知識}
+この文書では以下の宣言を断りなく用います.
+\begin{itemize}
+  \item 「量子系」と言ったときは、observableの集合、すなわち、あるHilbert空間上の有界作用素のなす$C^*$代数の部分$C^*$代数を指します.
+  \item 量子系A,Bに対し、$\mathrm{CPTP}(A,B)$をAからBへのCPTP写像全体の集合とします.
+  \item また、量子系A, Bに対し、$\mathfrak{F}(A,B)$を$\mathrm{CPTP}(A,B)$のsubsetとします.
+\end{itemize}
+
+\newpage
+\section{種々の定義}
+\begin{mtvn}
+  リソース理論で主題にしたいのは以下の要素です.
+  \begin{itemize}
+    \item 注目系が「自由」なときに可能なこと
+    \item 逆に、「自由」なときに不可能なこと
+    \item さらに、注目系に「リソース」がくっついたときに初めて可能になること
+  \end{itemize}
+  この「自由」「リソース」という単語は、文脈に応じて柔軟に意味を変える(定義が変わる)概念を抽象化した(モチベーションだけを一人歩きさせた)ものです.
+  そのため、ここではきわめてぼやけた運用をしておきます.
+\end{mtvn}
+\begin{defn}
+  「自由な写像の宣言」$\mathfrak{F} := \{ \mathfrak{F}(A,B)| \:A,B:\text{量子系} \}$が\underline{リソース理論}であるとは、以下の(R1)から(R6)をみたすことをいう. 
+  また、任意の$\mathfrak{F}(A) := \mathfrak{F}(\mathbb{C}, A)$の元を「自由な状態」という.
+  \begin{align*}
+    \textrm{(R1)}& \quad \forall A: \mathrm{id}^A \in \mathfrak{F}(A, A) \\
+    \textrm{(R2)}& \quad \forall A, \forall B, \forall C: \left( \mathscr{E} \in \mathfrak{F}(A, B), \:\mathscr{N} \in \mathfrak{F}(B, C) 
+                  \Rightarrow \mathscr{E} \circ \mathscr{N} \in \mathfrak{F}(A, C) \right) \\
+    \textrm{(R3)}& \quad \mathfrak{F}(A, \mathbb{C}) = \mathrm{CPTP}(A, \mathbb{C}) = \{ \mathrm{Tr} \} \\
+    \textrm{(R4)}& \: \textrm{(完全自由性)} \\
+                &\quad \forall A, \forall B, \forall C: \forall \mathscr{E} \in \mathfrak{F}(A,B): 
+                  \mathscr{E}\otimes \mathrm{id}^C \in \mathfrak{F}(A\otimes C, B\otimes C) \\
+    \textrm{(R5)}& \quad \forall A: \mathfrak{F}(A) \: \mathrm{is \: closed.} \\
+    \textrm{(R6)}& \quad \forall A: \mathfrak{F}(A) \: \mathrm{is \: convex.}
+  \end{align*}
+\end{defn}
+\begin{prop}["黄金律"]
+  \[ \rho \in \mathfrak{F}(A), \mathscr{E} \in \mathfrak{F}(A, B) 
+  \Rightarrow \mathscr{E}(\rho) \in \mathfrak{F}(B) \]
+  これは自由な状態に自由な操作を施すと、出力も自由であることを示している.(証明はby def.)
+\end{prop}
+\begin{rmk}
+  どんな自由状態も他の自由状態に自由演算で移り変われる.
+\end{rmk}
 
 \end{document}
